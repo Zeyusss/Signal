@@ -7,29 +7,17 @@ A modern social media platform built with Angular 21, featuring real-time posts,
 ## 🌟 Features
 
 - **User Authentication**
-<<<<<<< HEAD
-
-=======
->>>>>>> 3c82541715887c4ee33acc081b579d3e76c8544c
   - Secure login and registration
   - JWT-based authentication
   - Protected routes with guards
 
 - **Posts & Interactions**
-<<<<<<< HEAD
-
-=======
->>>>>>> 3c82541715887c4ee33acc081b579d3e76c8544c
   - Create and view posts
   - Infinite scroll for post loading
   - Like and comment functionality
   - Real-time updates
 
 - **User Profiles**
-<<<<<<< HEAD
-
-=======
->>>>>>> 3c82541715887c4ee33acc081b579d3e76c8544c
   - View and edit profile information
   - Profile pictures
   - User activity timeline
@@ -59,29 +47,17 @@ A modern social media platform built with Angular 21, featuring real-time posts,
 ### Installation
 
 1. Clone the repository:
-<<<<<<< HEAD
-
-=======
->>>>>>> 3c82541715887c4ee33acc081b579d3e76c8544c
    ```bash
    git clone [your-repo-url]
    cd Signal
    ```
 
 2. Install dependencies:
-<<<<<<< HEAD
-
-=======
->>>>>>> 3c82541715887c4ee33acc081b579d3e76c8544c
    ```bash
    npm install
    ```
 
 3. Start the development server:
-<<<<<<< HEAD
-
-=======
->>>>>>> 3c82541715887c4ee33acc081b579d3e76c8544c
    ```bash
    ng serve
    ```
@@ -120,11 +96,7 @@ Create an environment file at `src/environments/environment.ts`:
 ```typescript
 export const environment = {
   production: false,
-<<<<<<< HEAD
-  baseUrl: 'https://your-api-url.com/api',
-=======
   baseUrl: 'https://your-api-url.com/api'
->>>>>>> 3c82541715887c4ee33acc081b579d3e76c8544c
 };
 ```
 
@@ -145,8 +117,5 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 📬 Contact
 
 For any questions or feedback, please open an issue on GitHub.
-<<<<<<< HEAD
-=======
 
 
->>>>>>> 3c82541715887c4ee33acc081b579d3e76c8544c
