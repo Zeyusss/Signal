@@ -1,0 +1,138 @@
+<section class="bg-white md:w-[40%] mx-auto my-4 p-8 rounded-lg shadow">
+  <div>
+    <input
+      data-modal-target="authentication-modal"
+      data-modal-toggle="authentication-modal"
+      readonly
+      type="text"
+      id="first_name"
+      class="bg-neutral-secondary-medium caret-transparent outline-none focus:outline-none focus:ring-0 border cursor-pointer border-black text-heading text-sm rounded-base block w-full px-3 py-2.5 shadow-xs placeholder:text-body"
+      placeholder="What's on your mind today?"
+      required
+    />
+  </div>
+</section>
+
+<!-- Main modal -->
+<div
+  #modal
+  id="authentication-modal"
+  tabindex="-1"
+  aria-hidden="true"
+  class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full"
+>
+  <div class="relative p-4 w-full max-w-xl max-h-full">
+    <!-- Modal content -->
+    <div
+      class="relative bg-neutral-primary-soft border border-default rounded-base shadow-sm p-4 md:p-6"
+    >
+      <!-- Modal header -->
+      <div class="flex items-center justify-between border-b border-default pb-4 md:pb-5">
+        <h3 class="text-lg font-medium text-heading">Add new post</h3>
+        <button
+          type="button"
+          class="text-body bg-transparent cursor-pointer hover:bg-neutral-tertiary hover:text-heading rounded-base text-sm w-9 h-9 ms-auto inline-flex justify-center items-center"
+          data-modal-hide="authentication-modal"
+        >
+          <svg
+            class="w-5 h-5"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            fill="none"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M6 18 17.94 6M18 18 6.06 6"
+            />
+          </svg>
+          <span class="sr-only">Close modal</span>
+        </button>
+      </div>
+      <!-- Modal body -->
+      <form class="pt-4 md:pt-6" (submit)="submitPost($event)">
+        <textarea
+          [field]="createPostForm.content"
+          id="message"
+          rows="4"
+          class="bg-neutral-secondary-medium border border-gray-600 text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full p-3.5 shadow-xs placeholder:text-body"
+          placeholder="Write your thoughts here..."
+        ></textarea>
+
+        <div class="flex items-center justify-center w-full my-5">
+          <!--  UPLOAD STATE -->
+          @if (!imagePreview()) {
+          <label
+            for="dropzone-file"
+            class="flex flex-col items-center justify-center w-full h-64 bg-neutral-secondary-medium border border-dashed border-gray-600 rounded-base cursor-pointer hover:bg-neutral-tertiary-medium"
+          >
+            <div class="flex flex-col items-center justify-center text-body pt-5 pb-6">
+              <svg
+                class="w-8 h-8 mb-4"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M15 17h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 18 10.5
+               5.5 5.5 0 0 0 7.207 9.021
+               4 4 0 1 0 7 17h2.167M12 19v-9m0 0-2 2m2-2 2 2"
+                />
+              </svg>
+              <p class="mb-2 text-sm">
+                <span class="font-semibold">Click to upload</span> or drag and drop
+              </p>
+              <p class="text-xs">PNG, JPG, GIF</p>
+            </div>
+
+            <input
+              id="dropzone-file"
+              type="file"
+              class="hidden"
+              accept="image/*"
+              (change)="changeImg($event)"
+            />
+          </label>
+          }
+
+          <!--  PREVIEW STATE -->
+          @if (imagePreview()) {
+          <label
+            for="dropzone-file"
+            class="relative block w-full h-64 rounded-base overflow-hidden cursor-pointer group"
+          >
+            <img [src]="imagePreview()" class="w-full h-full object-cover" alt="Preview" />
+            <div
+              class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 flex items-center justify-center text-white text-sm transition"
+            >
+              Click to change image
+            </div>
+
+            <input
+              id="dropzone-file"
+              type="file"
+              class="hidden"
+              accept="image/*"
+              (change)="changeImg($event)"
+            />
+          </label>
+          }
+        </div>
+        <button type="submit" class="btn">
+          @if (this.isLoading() === false) { Post}@else {
+          <span><i class="fas fa-spinner animate-spin"></i></span>
+          }
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

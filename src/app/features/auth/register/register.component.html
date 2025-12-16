@@ -1,0 +1,202 @@
+<section class="flex flex-col justify-center items-center min-h-screen bg-gray-400 px-4">
+  <div class="bg-white w-full sm:w-3/4 md:w-2/3 lg:w-1/2 p-6 sm:p-10 rounded shadow-lg text-center">
+    <!-- main Title -->
+    <h1 class="text-2xl sm:text-3xl font-bold mb-4">
+      Register on <span class="text-(--main-color)">Signal</span>
+    </h1>
+
+    <span class="text-sm text-red-900 block mb-6">
+      ⚠️ Note: This is a demo site for learning purposes. You must log in to try all features.
+    </span>
+    <form (submit)="registerSubmit()">
+      <!-- Name -->
+      <div class="relative">
+        <input
+          [field]="registerForm.name"
+          type="text"
+          id="name"
+          class="main-input peer"
+          placeholder=" "
+        />
+        <label for="name" class="main-label">Name</label>
+      </div>
+      @if(this.registerForm.name().invalid()&& this.registerForm.name().touched()){
+      <div
+        class="px-4 py-2 mb-4 text-sm text-fg-danger-strong rounded-base bg-danger-soft"
+        role="alert"
+      >
+        @for (error of this.registerForm.name().errors(); track error.kind) {
+        <span class="font-medium"> {{ error.message }} </span>
+        }
+      </div>
+      }
+      <!-- Email -->
+      <div class="relative">
+        <input
+          [field]="registerForm.email"
+          type="email"
+          id="email"
+          class="main-input peer"
+          placeholder=" "
+        />
+        <label for="email" class="main-label">Email</label>
+      </div>
+      @if(this.registerForm.email().invalid() && this.registerForm.email().touched()){
+      <div
+        class="px-4 py-2 mb-4 text-sm text-fg-danger-strong rounded-base bg-danger-soft"
+        role="alert"
+      >
+        @for (error of this.registerForm.email().errors(); track error.kind) {
+        <span class="font-medium"> {{ error.message }} </span>
+        }
+      </div>
+
+      }
+      <!-- Password -->
+      <div class="relative">
+        <input
+          [field]="registerForm.password"
+          type="password"
+          id="password"
+          class="main-input peer"
+          placeholder=" "
+        />
+        <label for="password" class="main-label">Password</label>
+      </div>
+      @if(this.registerForm.password().invalid() && this.registerForm.password().touched()){
+      <div
+        class="px-4 py-2 mb-4 text-sm text-fg-danger-strong rounded-base bg-danger-soft"
+        role="alert"
+      >
+        @for (error of this.registerForm.password().errors(); track error.kind) {
+        <span class="font-medium"> {{ error.message }} </span>
+        }
+      </div>
+
+      }
+      <!-- rePassword -->
+      <div class="relative">
+        <input
+          [field]="registerForm.rePassword"
+          type="password"
+          id="password"
+          class="main-input peer"
+          placeholder=" "
+        />
+        <label for="password" class="main-label">rePassword</label>
+      </div>
+      @if(this.registerForm.rePassword().invalid() && this.registerForm.rePassword().touched()){
+      <div
+        class="px-4 py-2 mb-4 text-sm text-fg-danger-strong rounded-base bg-danger-soft"
+        role="alert"
+      >
+        @for (error of this.registerForm.rePassword().errors(); track error.kind) {
+        <span class="font-medium"> {{ error.message }} </span>
+        }
+      </div>
+
+      }
+      <!-- Date Of Birth -->
+      <div class="relative md:max-w-sm md:m-auto">
+        <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+          <svg
+            class="w-4 h-4 text-body"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            fill="none"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 10h16m-8-3V4M7 7V4m10 3V4M5 20h14a1 1 0 0 0 1-1V7a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1Zm3-7h.01v.01H8V13Zm4 0h.01v.01H12V13Zm4 0h.01v.01H16V13Zm-8 4h.01v.01H8V17Zm4 0h.01v.01H12V17Zm4 0h.01v.01H16V17Z"
+            />
+          </svg>
+        </div>
+        <input
+          [field]="registerForm.dateOfBirth"
+          datepicker
+          datepicker-format="mm-dd-yyyy"
+          id="default-datepicker"
+          type="text"
+          class="block w-full ps-9 pe-3 bg-neutral-secondary-medium border cursor-pointer border-black text-heading text-sm rounded-base focus:ring-brand focus:border-brand px-3 py-2.5 shadow-xs placeholder:text-body"
+          placeholder="Select date"
+        />
+      </div>
+      @if(this.registerForm.dateOfBirth().invalid() && this.registerForm.dateOfBirth().touched()){
+      <div
+        class="px-4 py-2 mb-4 text-sm text-fg-danger-strong rounded-base bg-danger-soft"
+        role="alert"
+      >
+        @for (error of this.registerForm.dateOfBirth().errors(); track error.kind) {
+        <span class="font-medium"> {{ error.message }} </span>
+        }
+      </div>
+
+      }
+      <!-- Gender -->
+      <div class="flex flex-col sm:flex-row gap-4 my-4">
+        <div
+          class="flex cursor-pointer flex-1 items-center ps-4 border border-black bg-neutral-primary-soft rounded-base"
+        >
+          <input
+            [field]="registerForm.gender"
+            id="bordered-radio-1"
+            type="radio"
+            value="male"
+            class="w-4 h-4 text-neutral-primary bg-neutral-secondary-medium rounded-full checked:border-brand focus:ring-2 focus:outline-none focus:ring-brand-subtle border border-black appearance-none"
+          />
+          <label
+            for="bordered-radio-1"
+            class="w-full cursor-pointer py-4 select-none ms-2 text-sm font-medium text-heading"
+            >Male</label
+          >
+        </div>
+        <div
+          class="flex flex-1 cursor-pointer items-center ps-4 border border-black bg-neutral-primary-soft rounded-base"
+        >
+          <input
+            [field]="registerForm.gender"
+            id="bordered-radio-2"
+            type="radio"
+            value="female"
+            class="w-4 h-4 text-neutral-primary bg-neutral-secondary-medium rounded-full checked:border-brand focus:ring-2 focus:outline-none focus:ring-brand-subtle border border-black appearance-none"
+          />
+          <label
+            for="bordered-radio-2"
+            class="w-full cursor-pointer py-4 select-none ms-2 text-sm font-medium text-heading"
+            >Female</label
+          >
+        </div>
+      </div>
+      @if(this.registerForm.gender().invalid() && this.registerForm.gender().touched()){
+      <div
+        class="px-4 py-2 mb-4 text-sm text-fg-danger-strong rounded-base bg-danger-soft"
+        role="alert"
+      >
+        @for (error of this.registerForm.gender().errors(); track error.kind) {
+        <span class="font-medium"> {{ error.message }} </span>
+        }
+      </div>
+      }
+      <button type="submit" class="btn">
+        @if (this.isLoading() === false) { Register}@else {
+        <span><i class="fas fa-spinner animate-spin"></i></span>
+        }
+      </button>
+    </form>
+    <!-- Login -->
+    <div class="mt-6 text-sm">
+      <h3>
+        Already Have an Account?
+        <span class="text-blue-700 cursor-pointer underline underline-offset-4">
+          <a routerLink="/login">Login</a>
+        </span>
+      </h3>
+    </div>
+  </div>
+</section>

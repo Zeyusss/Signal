@@ -1,0 +1,71 @@
+<section class="flex flex-col justify-center items-center min-h-screen bg-gray-400 px-4">
+  <div class="bg-white w-full sm:w-3/4 md:w-2/3 lg:w-1/2 p-6 sm:p-10 rounded shadow-lg text-center">
+    <!-- main Title -->
+    <h1 class="text-2xl sm:text-3xl font-bold mb-4">
+      Welcome back to <span class="text-(--main-color)">Signal</span>
+    </h1>
+
+    <span class="text-sm text-red-900 block mb-6">
+      ⚠️ Note: This is a demo site for learning purposes. You must log in to try all features.
+    </span>
+    <form (submit)="loginSubmit()">
+      <!-- Email Input -->
+      <div class="relative">
+        <input
+          [field]="loginForm.email"
+          type="email"
+          id="email"
+          class="main-input peer"
+          placeholder=" "
+        />
+        <label for="email" class="main-label">Email</label>
+      </div>
+      @if(this.loginForm.email().invalid() && this.loginForm.email().touched()){
+      <div
+        class="px-4 py-2 mb-4 text-sm text-fg-danger-strong rounded-base bg-danger-soft"
+        role="alert"
+      >
+        @for (error of this.loginForm.email().errors(); track error.kind) {
+        <span class="font-medium"> {{ error.message }} </span>
+        }
+      </div>
+      }
+      <!-- Password Input -->
+      <div class="relative">
+        <input
+          [field]="loginForm.password"
+          type="password"
+          id="password"
+          class="main-input peer"
+          placeholder=" "
+        />
+        <label for="password" class="main-label">Password</label>
+      </div>
+      @if(this.loginForm.password().invalid() && this.loginForm.password().touched()){
+      <div
+        class="px-4 py-2 mb-4 text-sm text-fg-danger-strong rounded-base bg-danger-soft"
+        role="alert"
+      >
+        @for (error of this.loginForm.password().errors(); track error.kind) {
+        <span class="font-medium"> {{ error.message }} </span>
+        }
+      </div>
+      }
+
+      <button type="submit" class="btn">
+        @if (this.isLoading() === false) { Login}@else {
+        <span><i class="fas fa-spinner animate-spin"></i></span>
+        }
+      </button>
+    </form>
+    <!-- Register / Forgot -->
+    <div class="mt-6 flex flex-col sm:flex-row items-center justify-between gap-2 text-sm">
+      <h3>
+        Don't Have an Account?
+        <span class="text-blue-700 underline underline-offset-4 cursor-pointer">
+          <a routerLink="/register">Register Now</a>
+        </span>
+      </h3>
+    </div>
+  </div>
+</section>

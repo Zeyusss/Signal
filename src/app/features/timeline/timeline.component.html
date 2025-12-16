@@ -1,0 +1,15 @@
+<app-create-post />
+
+@if (loading()) { @for (i of [1,2,3,4] ; track $index) {
+<app-skeleton-post />
+} } @else if (!loading() && hasPosts()) { @for (post of postsList(); track post.id) {
+<app-single-post [post]="post" />
+} }
+
+<div
+  class="search-results"
+  infiniteScroll
+  [infiniteScrollDistance]="1"
+  [infiniteScrollThrottle]="50"
+  (scrolled)="onScroll()"
+></div>

@@ -1,0 +1,89 @@
+<section class="bg-white rounded-lg md:w-[40%] m-auto my-2 p-5">
+  <div class="flex items-center justify-between">
+    <!-- post user info -->
+    <div class="flex items-center space-x-3">
+      <div>
+        <img [src]="post().user.photo" class="size-10 rounded-full" [alt]="post().user.name" />
+      </div>
+      <div>
+        <h3 class="text-xl leading-5">{{ post().user.name }}</h3>
+        <span class="text-sm text-gray-600"> {{ post().createdAt | date }} </span>
+      </div>
+    </div>
+    <!-- Dropdown menu -->
+    <div>
+      <button
+        id="dropdownMenuIconHorizontalButton"
+        data-dropdown-toggle="dropdownDotsHorizontal"
+        class="text-heading bg-neutral-primary box-border cursor-pointer border border-transparent hover:bg-neutral-secondary-medium focus:ring-neutral-tertiary font-medium leading-5 rounded-base text-sm p-2 focus:outline-none"
+        type="button"
+      >
+        <svg
+          class="w-6 h-6"
+          aria-hidden="true"
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          fill="none"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-width="3"
+            d="M6 12h.01m6 0h.01m5.99 0h.01"
+          />
+        </svg>
+      </button>
+      <!-- Dropdown menu -->
+      <div
+        id="dropdownDotsHorizontal"
+        class="z-10 hidden bg-neutral-primary-medium border border-default-medium rounded-base shadow-lg w-44 dark:divide-gray-600"
+      >
+        <ul
+          class="p-2 text-sm text-body font-medium"
+          aria-labelledby="dropdownMenuIconHorizontalButton"
+        >
+          <li>
+            <a
+              href="#"
+              class="inline-flex items-center w-full p-2 hover:bg-neutral-tertiary-medium hover:text-heading rounded"
+              >Dashboard</a
+            >
+          </li>
+          <li>
+            <a
+              href="#"
+              class="inline-flex items-center w-full p-2 hover:bg-neutral-tertiary-medium hover:text-heading rounded"
+              >Settings</a
+            >
+          </li>
+          <li>
+            <a
+              href="#"
+              class="inline-flex items-center w-full p-2 hover:bg-neutral-tertiary-medium hover:text-heading rounded"
+              >Earnings</a
+            >
+          </li>
+        </ul>
+        <div class="p-2 text-sm text-body font-medium border-t border-default">
+          <a
+            href="#"
+            class="inline-flex items-center w-full p-2 hover:bg-neutral-tertiary-medium hover:text-heading rounded"
+            >Separated link</a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Post description -->
+  <p class="my-4">@if (post().body) { {{ post().body }}}</p>
+  <!-- Post Img -->
+  <div>
+    @if (post().image) {
+    <img [src]="post().image" class="w-full rounded-lg" [alt]="post().user.name" />
+    }
+  </div>
+  <!-- Show Comments -->
+  <button class="text-(--main-color) cursor-pointer hover:underline">Show Comments</button>
+</section>
