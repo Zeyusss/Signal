@@ -1,9 +1,16 @@
-<app-create-post />
+<div class="md:w-[50%] m-auto">
+  <app-create-post />
+</div>
 
 @if (loading()) { @for (i of [1,2,3,4] ; track $index) {
-<app-skeleton-post />
+
+<div class="md:w-[50%] m-auto">
+  <app-skeleton-post />
+</div>
 } } @else if (!loading() && hasPosts()) { @for (post of postsList(); track post.id) {
-<app-single-post [post]="post" />
+<div class="md:w-[50%] m-auto">
+  <app-single-post [post]="post" />
+</div>
 } }
 
 <div

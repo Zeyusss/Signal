@@ -1,1 +1,82 @@
-<p>profile works!</p>
+<section class="relative w-full h-55 sm:h-70 md:h-80 lg:h-90 overflow-hidden rounded-b-2xl">
+  <!-- Cover Image -->
+  <div class="absolute inset-0 bg-cover bg-center scale-105"></div>
+
+  <!-- Overlay -->
+  <div class="absolute inset-0 bg-linear-to-b from-black/10 via-black/20 to-black/60"></div>
+
+  <!-- Content -->
+  <div class="relative h-full flex items-end px-4 sm:px-6 lg:px-8 pb-4 sm:pb-5 lg:pb-6 text-white">
+    <div class="flex flex-col sm:flex-row items-center sm:items-end gap-3 sm:gap-4">
+      <!-- Avatar -->
+      <div class="relative">
+        <div>
+          <img
+            [src]="loggedinUserInfo().photo"
+            class="w-24 h-24 sm:w-28 sm:h-28 lg:w-32 lg:h-32 rounded-full border-4 border-neutral-900 bg-neutral-700"
+            alt=""
+          />
+        </div>
+
+        <!-- Edit avatar -->
+        <button
+          class="cursor-pointer absolute bottom-1 right-1 w-8 h-8 rounded-full bg-neutral-900/80 flex items-center justify-center text-sm hover:bg-neutral-800"
+        >
+          ✎
+        </button>
+      </div>
+
+      <!-- Name -->
+      <div class="text-center sm:text-left">
+        <h2 class="text-xl sm:text-2xl font-semibold leading-tight">
+          {{ loggedinUserInfo().name }}
+        </h2>
+        <p class="text-xs sm:text-sm text-white/80">{{ loggedinUserInfo().email }}</p>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="grid sm:grid-cols-12 px-3 py-4 md:gap-10">
+  <div class="col-span-12 lg:col-span-9 order-2">
+    <app-create-post />
+    @if (postsLoading()) { @for (i of [1,2,3]; track $index) {
+    <app-skeleton-post />} }@else if(!postsLoading() && hasPosts()) { @for (post of userPostsList();
+    track post.id) {
+    <app-single-post [post]="post" />
+    } }
+  </div>
+  @if (aboutMeLoading()) {
+  <section class="col-span-12 lg:col-span-3 order-1 md:my-4 bg-white rounded p-4 animate-pulse">
+    <!-- header -->
+    <div class="h-6 w-32 bg-gray-200 rounded mb-4"></div>
+
+    <!-- details -->
+    <div class="flex flex-col-reverse space-y-2 space-y-reverse">
+      <div class="h-4 w-50 bg-gray-200 rounded my-2"></div>
+      <div class="h-4 w-50 bg-gray-200 rounded my-2"></div>
+      <div class="h-4 w-50 bg-gray-200 rounded my-2"></div>
+    </div>
+  </section>
+  }@else {
+  <section class="col-span-12 lg:col-span-3 order-1 md:my-4">
+    <div class="rounded bg-white p-4">
+      <h2 class="text-xl text-center">About Me</h2>
+
+      <div class="flex flex-col-reverse">
+        <span class="my-2"
+          ><i class="fa-solid fa-circle-plus"></i> Gender :
+          <span class="capitalize">{{ loggedinUserInfo().gender }}</span>
+        </span>
+        <span class="my-2"
+          ><i class="fa-solid fa-circle-plus"></i> Date of birth :
+          {{ loggedinUserInfo().dateOfBirth }}
+        </span>
+        <span class="my-2"
+          ><i class="fa-solid fa-circle-plus"></i> Created At :
+          {{ loggedinUserInfo().createdAt | date : 'dd/MM/yyyy' }}
+        </span>
+      </div>
+    </div>
+  </section>
+  }
+</section>

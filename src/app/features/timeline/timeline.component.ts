@@ -5,6 +5,7 @@ import { PostService } from '../../shared/components/single-post/services/post.s
 import { Post } from '../../shared/components/single-post/modesl/post/post.interface';
 import { SkeletonPostComponent } from '../../shared/components/skeletons/skeleton-post/skeleton-post.component';
 import { InfiniteScrollDirective } from 'ngx-infinite-scroll';
+import { initFlowbite } from 'flowbite';
 
 @Component({
   selector: 'app-timeline',
@@ -27,6 +28,7 @@ export class TimelineComponent implements OnInit {
   page = 1;
 
   ngOnInit(): void {
+    initFlowbite();
     this.getAllPosts();
   }
   getAllPosts(): void {
