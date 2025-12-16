@@ -1,59 +1,121 @@
-# Connect
+# Signal - Social Media Platform
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.0.0.
+> **Note:** This project is currently under active development.
 
-## Development server
+A modern social media platform built with Angular 21, featuring real-time posts, user authentication, and interactive content. Connect with friends, share moments, and engage with a clean, responsive interface.
 
-To start a local development server, run:
+## 🌟 Features
 
-```bash
-ng serve
+- **User Authentication**
+  - Secure login and registration
+  - JWT-based authentication
+  - Protected routes with guards
+
+- **Posts & Interactions**
+  - Create and view posts
+  - Infinite scroll for post loading
+  - Like and comment functionality
+  - Real-time updates
+
+- **User Profiles**
+  - View and edit profile information
+  - Profile pictures
+  - User activity timeline
+
+- **Responsive Design**
+  - Mobile-first approach
+  - Clean, modern UI with Tailwind CSS
+  - Smooth animations and transitions
+
+## 🛠️ Tech Stack
+
+- **Frontend Framework**: Angular 21
+- **Styling**: Tailwind CSS 4 with Flowbite components
+- **State Management**: Angular Signals
+- **HTTP Client**: Angular HttpClient with interceptors
+- **Authentication**: JWT with HttpOnly cookies
+- **UI Components**: Custom components with Angular standalone API
+- **Build Tool**: Angular CLI
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Node.js 18+ and npm
+- Angular CLI 21+
+
+### Installation
+
+1. Clone the repository:
+   ```bash
+   git clone [your-repo-url]
+   cd Signal
+   ```
+
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+3. Start the development server:
+   ```bash
+   ng serve
+   ```
+
+4. Open your browser and navigate to `http://localhost:4200`
+
+## 📁 Project Structure
+
+```
+src/
+├── app/
+│   ├── core/               # Core functionality
+│   │   ├── guards/         # Route guards
+│   │   ├── interceptors/   # HTTP interceptors
+│   │   └── services/       # Core services
+│   │
+│   ├── features/           # Feature modules
+│   │   ├── auth/           # Authentication
+│   │   ├── timeline/       # Post timeline
+│   │   └── profile/        # User profiles
+│   │
+│   ├── shared/             # Shared components and pipes
+│   │   ├── components/     # Reusable UI components
+│   │   └── pipes/          # Custom pipes
+│   │
+│   ├── app.routes.ts       # Application routes
+│   └── app.config.ts       # Application configuration
+│
+└── environments/           # Environment configurations
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## 🔒 Environment Setup
 
-## Code scaffolding
+Create an environment file at `src/environments/environment.ts`:
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
+```typescript
+export const environment = {
+  production: false,
+  baseUrl: 'https://your-api-url.com/api'
+};
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## 🤝 Contributing
 
-```bash
-ng generate --help
-```
+Contributions are welcome! Please follow these steps:
 
-## Building
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
-To build the project run:
+## 📝 License
 
-```bash
-ng build
-```
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+## 📬 Contact
 
-## Running unit tests
+For any questions or feedback, please open an issue on GitHub.
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
 
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
