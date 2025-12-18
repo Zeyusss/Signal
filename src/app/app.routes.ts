@@ -9,6 +9,7 @@ import { DetailsPostComponent } from './features/details-post/details-post.compo
 import { NotfoundComponent } from './features/notfound/notfound.component';
 import { authGuard } from './core/guards/auth/auth-guard';
 import { isLoggedGuard } from './core/guards/isLogged/is-logged-guard';
+import { ChangePasswordComponent } from './features/auth/change-password/change-password.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -28,7 +29,8 @@ export const routes: Routes = [
     children: [
       { path: 'home', component: TimelineComponent, title: 'Home' },
       { path: 'profile', component: ProfileComponent, title: 'Profile' },
-      { path: 'details', component: DetailsPostComponent, title: 'Details' },
+      { path: 'details/:id', component: DetailsPostComponent, title: 'Details' },
+      { path: 'change-password', component: ChangePasswordComponent, title: 'Change Password' },
     ],
   },
   { path: '**', component: NotfoundComponent, title: 'NotFound' },

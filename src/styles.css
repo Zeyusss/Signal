@@ -38,6 +38,11 @@ body{
     disabled:opacity-60;
 }
 
+.bg{
+    background-image: url('../public/images/background.webp');
+    background-size: cover;
+    background-position:  center center;
+}
   
   .main-input{
    @apply block px-2.5 pb-2.5 pt-5 w-full text-sm text-heading bg-transparent rounded-base border border-black appearance-none focus:outline-none focus:ring-0 focus:border-brand mb-4

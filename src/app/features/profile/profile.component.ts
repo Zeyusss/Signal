@@ -46,7 +46,6 @@ export class ProfileComponent implements OnInit {
   getLoggedInUserPosts(userId: string): void {
     this.userPostsService.getAllUserPosts(userId).subscribe({
       next: (res) => {
-        console.log(res);
         if (res.message === 'success') {
           this.userPostsList.set(res.posts);
           this.postsLoading.set(false);

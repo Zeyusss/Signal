@@ -35,7 +35,6 @@ export class TimelineComponent implements OnInit {
     this.postsLoading.update((value) => true);
     this.postService.getAllPosts(this.page, this.limit).subscribe({
       next: (res) => {
-        console.log(res);
         this.postsLoading.update((value) => false);
         this.loading.update((value) => false);
         this.postsList.update((value) => [...value, ...res.posts]);

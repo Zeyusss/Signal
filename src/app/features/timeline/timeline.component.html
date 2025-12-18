@@ -2,6 +2,9 @@
   <app-create-post />
 </div>
 
+<p class="text-sm text-gray-500 italic text-center p-5">
+  New posts are displayed at the bottom because that’s how the API returns them.
+</p>
 @if (loading()) { @for (i of [1,2,3,4] ; track $index) {
 
 <div class="md:w-[50%] m-auto">

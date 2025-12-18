@@ -17,4 +17,7 @@ export class AuthService {
   signUpPost(data: Register): Observable<any> {
     return this.httpClient.post(`${environment.baseUrl}/users/signup`, data);
   }
+  changePasswordPatch(data: object): Observable<any> {
+    return this.httpClient.patch(`${environment.baseUrl}/users/change-password`, data);
+  }
 }

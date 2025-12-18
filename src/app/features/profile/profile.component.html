@@ -43,7 +43,9 @@
     <app-skeleton-post />} }@else if(!postsLoading() && hasPosts()) { @for (post of userPostsList();
     track post.id) {
     <app-single-post [post]="post" />
-    } }
+    } }@else if (userPostsList().length < 0){
+    <p class="text-center text-2xl p-10">No Posts Yet.</p>
+    }
   </div>
   @if (aboutMeLoading()) {
   <section class="col-span-12 lg:col-span-3 order-1 md:my-4 bg-white rounded p-4 animate-pulse">

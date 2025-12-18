@@ -1,1 +1,12 @@
-<p>details-post works!</p>
+@if (detailsLoading()) {
+<div class="md:w-[80%] m-auto">
+  <app-skeleton-post />
+</div>
+} @else if (!detailsLoading()) {
+<div class="md:w-[80%] m-auto">
+  <app-single-post [post]="postData()" [showButton]="false" [showMoreCommentsInPost]="true" />
+</div>
+}
+<p class="text-sm text-gray-500 italic text-center p-5">
+  The comments are displayed at the top of the list because that’s how the API returns them.
+</p>

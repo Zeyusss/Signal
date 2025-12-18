@@ -1,1 +1,20 @@
-<p>single-comment works!</p>
+<section class="bg-gray-200 p-3 my-4 rounded-lg">
+  <div class="flex items-center space-x-3">
+    <div>
+      <img
+        [src]="
+          comment().commentCreator.photo.includes('undefined')
+            ? '/images/default-profile.webp'
+            : comment().commentCreator.photo
+        "
+        class="size-10 rounded-full"
+        [alt]="comment().commentCreator.name"
+      />
+    </div>
+    <h2 class="font-bold text-lg">{{ comment().commentCreator.name }}</h2>
+    <span class="text-gray-500 text-sm"> {{ comment().createdAt | date }} </span>
+  </div>
+  <p class="mt-3">
+    {{ comment().content }}
+  </p>
+</section>

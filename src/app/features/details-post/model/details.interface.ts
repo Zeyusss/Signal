@@ -1,4 +1,4 @@
-export interface Post {
+export interface Details {
   _id: string;
   body: string;
   image: string;
@@ -8,7 +8,7 @@ export interface Post {
   id: string;
 }
 
-export interface Comment {
+interface Comment {
   _id: string;
   content: string;
   commentCreator: User;
@@ -16,7 +16,7 @@ export interface Comment {
   createdAt: string;
 }
 
-export interface User {
+interface User {
   _id: string;
   name: string;
   photo: string;

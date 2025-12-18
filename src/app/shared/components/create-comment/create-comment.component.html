@@ -1,0 +1,43 @@
+<!-- Comments -->
+@if(commentsLoading() === true){ @for (i of [1]; track $index) {
+<app-skeleton-comment />
+} }@else { @if(showMoreComments() ){ @for (comment of comments(); track comment._id) {
+<app-single-comment [comment]="comment" />
+} }@else { @for (comment of comments().slice(0,1); track comment._id) {
+<app-single-comment [comment]="comment" />
+} } }
+<form (submit)="submitComment($event)">
+  <label for="chat" class="sr-only">Your message</label>
+  <div class="flex items-center p-3 rounded-base bg-gray-200">
+    <textarea
+      [field]="commentForm.content"
+      id="chat"
+      rows="1"
+      class="mx-4 bg-neutral-primary-medium border border-black text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-3 py-2.5 placeholder:text-body"
+      placeholder="Your message..."
+    ></textarea>
+    <button
+      type="submit"
+      class="inline-flex justify-center p-2 text-fg-brand rounded-full cursor-pointer hover:bg-brand-softer"
+    >
+      <svg
+        class="w-6 h-6 rotate-90 rtl:-rotate-90"
+        aria-hidden="true"
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        fill="none"
+        viewBox="0 0 24 24"
+      >
+        <path
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="m12 18-7 3 7-18 7 18-7-3Zm0 0v-5"
+        />
+      </svg>
+      <span class="sr-only">Send message</span>
+    </button>
+  </div>
+</form>
