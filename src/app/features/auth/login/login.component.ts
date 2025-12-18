@@ -8,6 +8,7 @@ import { AuthService } from '../services/auth.service';
 import { ToastrService } from 'ngx-toastr';
 import { Router, RouterLink } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-login',
@@ -23,6 +24,7 @@ export class LoginComponent implements OnInit {
   loginModel = signal<Login>(initLogin);
   loginForm = form(this.loginModel, loginSchema);
   isLoading = signal<boolean>(false);
+  subscripe: Subscription = new Subscription();
 
   ngOnInit(): void {
     initFlowbite();
@@ -31,7 +33,8 @@ export class LoginComponent implements OnInit {
     event?.preventDefault();
     if (this.loginForm().valid()) {
       this.isLoading.update((value) => true);
-      this.authService.signInPost(this.loginForm().value()).subscribe({
+      this.subscripe.unsubscribe();
+      this.subscripe = this.authService.signInPost(this.loginForm().value()).subscribe({
         next: (res) => {
           if (res.message === 'success') {
             this.isLoading.update((value) => false);

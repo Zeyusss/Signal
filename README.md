@@ -14,6 +14,7 @@ Signal is a modern, responsive social media platform built with Angular 21, feat
 ## ✨ Features
 
 ### 🔐 Authentication & Security
+
 - **User Authentication**
   - Secure JWT-based authentication with HttpOnly cookies
   - Role-based access control (RBAC)
@@ -22,6 +23,7 @@ Signal is a modern, responsive social media platform built with Angular 21, feat
   - Session management with refresh tokens
 
 ### 📝 Posts & Content
+
 - **Rich Content Creation**
   - Create, edit, and delete posts
   - Support for text, images, and embedded content
@@ -30,6 +32,7 @@ Signal is a modern, responsive social media platform built with Angular 21, feat
   - Hashtag and mention support
 
 ### 💬 Interactions
+
 - **Engagement Features**
   - Like, comment, and share posts
   - Nested comments with threading
@@ -38,6 +41,7 @@ Signal is a modern, responsive social media platform built with Angular 21, feat
   - Report inappropriate content
 
 ### 👤 User Profiles
+
 - **Personalization**
   - Customizable profiles with bio and links
   - Profile picture and cover photo uploads
@@ -46,6 +50,7 @@ Signal is a modern, responsive social media platform built with Angular 21, feat
   - Privacy settings
 
 ### 🎨 UI/UX
+
 - **Design & Experience**
   - Fully responsive design (mobile, tablet, desktop)
   - Dark/Light theme support
@@ -55,6 +60,7 @@ Signal is a modern, responsive social media platform built with Angular 21, feat
   - Smooth animations with Angular animations
 
 ### 🚀 Performance
+
 - **Optimizations**
   - Lazy-loaded feature modules
   - Image optimization and lazy loading
@@ -63,6 +69,7 @@ Signal is a modern, responsive social media platform built with Angular 21, feat
   - Service worker for offline capabilities
 
 ### 🛠 Developer Experience
+
 - **Development Tools**
   - Comprehensive TypeScript support
   - ESLint and Prettier for code quality
@@ -93,12 +100,14 @@ Signal is a modern, responsive social media platform built with Angular 21, feat
 ### Installation
 
 1. Clone the repository:
+
    ```bash
    git clone https://github.com/Zeyusss/Signal.git
    cd Signal
    ```
 
 2. Install dependencies:
+
    ```bash
    npm install
    # or
@@ -106,10 +115,12 @@ Signal is a modern, responsive social media platform built with Angular 21, feat
    ```
 
 3. Configure environment:
+
    - Copy `src/environments/environment.example.ts` to `src/environments/environment.ts`
    - Update the configuration values as needed
 
 4. Start the development server:
+
    ```bash
    npm start
    # or
@@ -167,6 +178,7 @@ src/
 ## 🧩 Core Features in Detail
 
 ### Authentication System
+
 - JWT-based authentication with refresh tokens
 - Role-based access control (RBAC)
 - Social login integration (Google, Facebook, etc.)
@@ -174,6 +186,7 @@ src/
 - Session management
 
 ### Post Management
+
 - Rich text editor with formatting options
 - Image upload and optimization
 - Post scheduling
@@ -181,6 +194,7 @@ src/
 - Post engagement analytics
 
 ### User Experience
+
 - Responsive design for all devices
 - Dark/light theme support
 - Keyboard navigation
@@ -188,6 +202,7 @@ src/
 - Push notifications
 
 ### Performance Optimizations
+
 - Lazy loading of feature modules
 - Image lazy loading with placeholders
 - Virtual scrolling for long lists
@@ -197,18 +212,21 @@ src/
 ## 🧪 Testing Strategy
 
 ### Unit Testing
+
 - Component testing with TestBed
 - Service testing with mocks
 - Pipe and utility function testing
 - Test coverage reporting
 
 ### E2E Testing
+
 - Critical user flows
 - Authentication testing
 - Form validations
 - API integration tests
 
 ### Performance Testing
+
 - Lighthouse audits
 - Bundle size analysis
 - Load testing for critical paths
@@ -231,7 +249,7 @@ export const environment = {
     timeout: 30000, // 30 seconds
     retry: 3, // Number of retry attempts for failed requests
   },
-  
+
   // Authentication
   auth: {
     tokenKey: 'auth_token',
@@ -239,26 +257,26 @@ export const environment = {
     tokenExpirationKey: 'token_expiration',
     userKey: 'current_user',
   },
-  
+
   // Feature Flags
   features: {
     enableAnalytics: false,
     enableExperimentalFeatures: false,
   },
-  
+
   // External Services
   services: {
     googleAnalyticsId: 'YOUR_GA_ID',
     sentryDsn: 'YOUR_SENTRY_DSN',
   },
-  
+
   // UI Configuration
   ui: {
     defaultTheme: 'light', // 'light' | 'dark' | 'system'
     enableAnimations: true,
     itemsPerPage: 10,
   },
-  
+
   // Version Information
   version: '0.1.0',
   build: 'dev',
@@ -285,22 +303,23 @@ export const environment = {
 
 ### Environment Variables
 
-| Variable | Description | Default |
-|----------|-------------|---------|
-| `production` | Whether the app is running in production mode | `false` |
-| `api.baseUrl` | Base URL for API requests | `''` |
-| `api.timeout` | API request timeout in milliseconds | `30000` |
-| `api.retry` | Number of retry attempts for failed requests | `3` |
-| `auth.tokenKey` | Local storage key for auth token | `'auth_token'` |
-| `features.enableAnalytics` | Toggle for analytics features | `false` |
-| `ui.defaultTheme` | Default UI theme | `'light'` |
-| `version` | Application version | `'0.1.0'` |
+| Variable                   | Description                                   | Default        |
+| -------------------------- | --------------------------------------------- | -------------- |
+| `production`               | Whether the app is running in production mode | `false`        |
+| `api.baseUrl`              | Base URL for API requests                     | `''`           |
+| `api.timeout`              | API request timeout in milliseconds           | `30000`        |
+| `api.retry`                | Number of retry attempts for failed requests  | `3`            |
+| `auth.tokenKey`            | Local storage key for auth token              | `'auth_token'` |
+| `features.enableAnalytics` | Toggle for analytics features                 | `false`        |
+| `ui.defaultTheme`          | Default UI theme                              | `'light'`      |
+| `version`                  | Application version                           | `'0.1.0'`      |
 
 ## 🧪 Testing
 
 ### Unit Tests
 
 Run unit tests with code coverage:
+
 ```bash
 # Run all unit tests
 npm test
@@ -315,6 +334,7 @@ ng test --code-coverage
 ### E2E Tests
 
 Run end-to-end tests with Cypress:
+
 ```bash
 # Run in headless mode
 ng e2e
@@ -329,16 +349,19 @@ ng e2e --spec=cypress/e2e/login.cy.ts
 ### Testing Best Practices
 
 1. **Component Testing**
+
    - Test component inputs/outputs
    - Test template bindings
    - Test DOM interactions
 
 2. **Service Testing**
+
    - Mock HTTP requests
    - Test error handling
    - Test service methods
 
 3. **E2E Testing**
+
    - Test critical user journeys
    - Test authentication flows
    - Test form validations
@@ -351,15 +374,18 @@ ng e2e --spec=cypress/e2e/login.cy.ts
 ### Testing Libraries
 
 - **Unit Testing**
+
   - [Jest](https://jestjs.io/) - Test runner and assertion library
   - [@testing-library/angular](https://testing-library.com/docs/angular-testing-library/intro) - For testing Angular components
   - [ng-mocks](https://ng-mocks.sudo.eu/) - For mocking Angular services
 
 - **E2E Testing**
+
   - [Cypress](https://www.cypress.io/) - End-to-end testing
   - [Cypress Testing Library](https://testing-library.com/docs/cypress-testing-library/intro) - For better selectors
 
 - **Visual Regression**
+
   - [Percy](https://percy.io/) - Visual testing
   - [Storybook](https://storybook.js.org/) - Component development environment
 
@@ -388,6 +414,7 @@ npm run start:prod
 ### Deployment
 
 #### Prerequisites
+
 - Node.js 18+ installed
 - Nginx or similar web server
 - PM2 for process management (optional)
@@ -395,12 +422,14 @@ npm run start:prod
 #### Deployment Steps
 
 1. **Build the application**
+
    ```bash
    npm install
    npm run build
    ```
 
 2. **Configure Web Server (Nginx Example)**
+
    ```nginx
    server {
        listen 80;
@@ -425,6 +454,7 @@ npm run start:prod
    ```
 
 3. **Set Up PM2 (Optional)**
+
    ```bash
    # Install PM2 globally
    npm install -g pm2
@@ -457,42 +487,42 @@ name: Deploy to Production
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    
+
     steps:
-    - uses: actions/checkout@v3
-    
-    - name: Set up Node.js
-      uses: actions/setup-node@v3
-      with:
-        node-version: '18'
-        cache: 'npm'
-    
-    - name: Install dependencies
-      run: npm ci
-    
-    - name: Run tests
-      run: npm test
-    
-    - name: Build for production
-      run: npm run build:prod
-    
-    - name: Deploy to server
-      uses: appleboy/ssh-action@master
-      with:
-        host: ${{ secrets.SSH_HOST }}
-        username: ${{ secrets.SSH_USERNAME }}
-        key: ${{ secrets.SSH_PRIVATE_KEY }}
-        script: |
-          cd /var/www/signal
-          git pull origin main
-          npm ci --production
-          npm run build:prod
-          pm2 restart signal
+      - uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run tests
+        run: npm test
+
+      - name: Build for production
+        run: npm run build:prod
+
+      - name: Deploy to server
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USERNAME }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            cd /var/www/signal
+            git pull origin main
+            npm ci --production
+            npm run build:prod
+            pm2 restart signal
 ```
 
 ## 🤝 Contributing
@@ -502,40 +532,46 @@ We welcome contributions from the community! Before you get started, please read
 ### How to Contribute
 
 1. **Fork the Repository**
+
    - Click 'Fork' on the GitHub repository
    - Clone your forked repository
+
    ```bash
    git clone https://github.com/your-username/Signal.git
    cd Signal
    ```
 
 2. **Set Up Development Environment**
+
    ```bash
    # Install dependencies
    npm install
-   
+
    # Install Git hooks
    npx husky install
    ```
 
 3. **Create a Feature Branch**
+
    ```bash
    git checkout -b feature/amazing-feature
    ```
 
 4. **Make Your Changes**
+
    - Follow the [Angular Style Guide](https://angular.io/guide/styleguide)
    - Write tests for new features
    - Update documentation as needed
 
 5. **Commit Your Changes**
+
    ```bash
    # Stage your changes
    git add .
-   
+
    # Commit with a descriptive message
    git commit -m "feat: add amazing feature"
-   
+
    # Push to your fork
    git push origin feature/amazing-feature
    ```
@@ -550,6 +586,7 @@ We welcome contributions from the community! Before you get started, please read
 
 - **Branch Naming**: `feature/`, `fix/`, `docs/`, `refactor/`, `test/`, `chore/`
 - **Commit Message Format**:
+
   ```
   <type>(<scope>): <subject>
   <BLANK LINE>
@@ -557,15 +594,16 @@ We welcome contributions from the community! Before you get started, please read
   <BLANK LINE>
   <footer>
   ```
-  
+
   Example:
+
   ```
   feat(auth): add password reset functionality
-  
+
   - Add password reset form component
   - Implement password reset service
   - Add unit tests
-  
+
   Closes #123
   ```
 
@@ -579,6 +617,7 @@ We welcome contributions from the community! Before you get started, please read
 ### Reporting Issues
 
 Found a bug? Please open an issue with:
+
 - Clear title and description
 - Steps to reproduce
 - Expected vs actual behavior
@@ -592,18 +631,21 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 🙏 Acknowledgments & Credits
 
 ### Core Technologies
+
 - [Angular](https://angular.io/) - The web framework used
 - [TypeScript](https://www.typescriptlang.org/) - For type-safe JavaScript
 - [RxJS](https://rxjs.dev/) - For reactive programming
 - [NgRx](https://ngrx.io/) - State management
 
 ### UI & Styling
+
 - [Tailwind CSS](https://tailwindcss.com/) - Utility-first CSS framework
 - [Flowbite](https://flowbite.com/) - UI component library
 - [Font Awesome](https://fontawesome.com/) - Icons
 - [Angular Material](https://material.angular.io/) - Material Design components
 
 ### Development Tools
+
 - [Angular CLI](https://cli.angular.io/) - Command line interface
 - [ESLint](https://eslint.org/) - JavaScript/TypeScript linting
 - [Prettier](https://prettier.io/) - Code formatting
@@ -611,12 +653,14 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - [Cypress](https://www.cypress.io/) - End-to-end testing
 
 ### Infrastructure
+
 - [GitHub Actions](https://github.com/features/actions) - CI/CD
 - [Docker](https://www.docker.com/) - Containerization
 - [Nginx](https://www.nginx.com/) - Web server
 - [PM2](https://pm2.keymetrics.io/) - Process manager
 
 ### Special Thanks
+
 - The Angular team for an amazing framework
 - The open-source community for invaluable contributions
 - All contributors who have helped improve this project
@@ -641,7 +685,7 @@ Please report security issues to security@yoursignalapp.com. We appreciate your 
 ---
 
 <p align="center">
-  Made with ❤️ by the Signal Team
+  Made with ❤️ by Zeyus
   <br>
   <a href="https://github.com/Zeyusss/Signal/graphs/contributors">
     <img src="https://contrib.rocks/image?repo=Zeyusss/Signal" alt="Contributors" />

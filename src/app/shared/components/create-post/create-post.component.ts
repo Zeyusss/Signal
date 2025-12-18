@@ -13,6 +13,7 @@ import { form, Field, FIELD } from '@angular/forms/signals';
 import { creatPostSchema } from './model/creat-post.schema';
 import { PostService } from '../single-post/services/post.service';
 import { ToastrService } from 'ngx-toastr';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-create-post',
@@ -28,6 +29,7 @@ export class CreatePostComponent implements OnInit {
   myModal = viewChild<ElementRef>('modal');
   imagePreview = signal<string | null>(null);
   isLoading = signal<boolean>(false);
+  suberscribe: Subscription = new Subscription();
   ngOnInit(): void {
     initFlowbite();
   }
@@ -58,7 +60,8 @@ export class CreatePostComponent implements OnInit {
       if (this.saveFile()) {
         formData.append('image', this.saveFile());
       }
-      this.postService.creatPostPost(formData).subscribe({
+      this.suberscribe.unsubscribe();
+      this.suberscribe = this.postService.creatPostPost(formData).subscribe({
         next: (res) => {
           console.log(res);
           if (res.message === 'success') {

@@ -38,7 +38,7 @@
 </section>
 <section class="grid sm:grid-cols-12 px-3 py-4 md:gap-10">
   <div class="col-span-12 lg:col-span-9 order-2">
-    <app-create-post />
+    <app-create-post (postCreated)="refreshPosts()" />
     @if (postsLoading()) { @for (i of [1,2,3]; track $index) {
     <app-skeleton-post />} }@else if(!postsLoading() && hasPosts()) { @for (post of userPostsList();
     track post.id) {

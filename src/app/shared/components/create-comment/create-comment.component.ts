@@ -1,10 +1,20 @@
-import { Component, inject, input, Input, InputSignal, OnInit, signal } from '@angular/core';
+import {
+  Component,
+  inject,
+  input,
+  Input,
+  InputSignal,
+  OnInit,
+  output,
+  signal,
+} from '@angular/core';
 import { form, Field } from '@angular/forms/signals';
 import { initComment } from './model/comment.init';
 import { Comment, Comments } from './model/comment.interface';
 import { CommentService } from '../single-comment/services/comment.service';
 import { SingleCommentComponent } from '../single-comment/single-comment.component';
 import { SkeletonCommentComponent } from '../skeletons/skeleton-comment/skeleton-comment.component';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-create-comment',
@@ -21,7 +31,9 @@ export class CreateCommentComponent implements OnInit {
   comments = signal<Comments[]>([]);
   commentsLoading = signal<boolean>(false);
   showMoreComments = input<boolean>(false);
+  postCreated = output<void>();
 
+  subscribe: Subscription = new Subscription();
   ngOnInit(): void {
     this.getComments();
   }
@@ -47,7 +59,8 @@ export class CreateCommentComponent implements OnInit {
         content: this.commentForm.content().value(),
         post: this.postId(),
       };
-      this.commentService.createCommentPost(data).subscribe({
+      this.subscribe.unsubscribe();
+      this.subscribe = this.commentService.createCommentPost(data).subscribe({
         next: (res) => {
           if (res.message === 'success') {
             this.commentForm.content().reset('');

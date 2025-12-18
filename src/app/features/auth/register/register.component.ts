@@ -7,6 +7,7 @@ import { registerSchema } from '../model/register/register.schema';
 import { AuthService } from '../services/auth.service';
 import { ToastrService } from 'ngx-toastr';
 import { Router, RouterLink } from '@angular/router';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-register',
@@ -21,7 +22,7 @@ export class RegisterComponent {
   registerModel = signal<Register>(initRegister);
   registerForm = form<Register>(this.registerModel, registerSchema);
   isLoading = signal<boolean>(false);
-
+  subscribe: Subscription = new Subscription();
   ngOnInit(): void {
     initFlowbite();
   }
@@ -29,9 +30,9 @@ export class RegisterComponent {
     event?.preventDefault();
     if (this.registerForm().valid()) {
       this.isLoading.update((value) => true);
-      this.authService.signUpPost(this.registerForm().value()).subscribe({
+      this.subscribe.unsubscribe();
+      this.subscribe = this.authService.signUpPost(this.registerForm().value()).subscribe({
         next: (res) => {
-          console.log(res);
           if (res.message === 'success') {
             this.isLoading.update((value) => false);
             this.toastrService.success('Accounted Created Successfully');

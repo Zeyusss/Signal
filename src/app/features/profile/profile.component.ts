@@ -56,4 +56,8 @@ export class ProfileComponent implements OnInit {
       },
     });
   }
+  refreshPosts(): void {
+    this.postsLoading.set(true);
+    this.getLoggedInUserPosts(this.loggedinUserInfo()._id);
+  }
 }
