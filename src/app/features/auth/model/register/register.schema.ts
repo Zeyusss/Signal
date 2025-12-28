@@ -5,7 +5,6 @@ export const registerSchema = schema<Register>((rootPath) => {
   required(rootPath.name, { message: 'Name is required!' }),
     required(rootPath.email, { message: 'Email is required!' }),
     required(rootPath.gender, { message: 'Gender is required!' }),
-    required(rootPath.dateOfBirth, { message: 'dateOfBirth is required!' }),
     required(rootPath.password, { message: 'Password is required!' }),
     required(rootPath.rePassword, { message: 'rePassword is required!' }),
     email(rootPath.email, { message: 'Email is incorrect' }),

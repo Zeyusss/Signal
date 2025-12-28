@@ -5,6 +5,6 @@ export const initRegister: Register = {
   email: '',
   password: '',
   rePassword: '',
-  dateOfBirth: '',
+  dateOfBirth: '12/12/2025',
   gender: '',
 };
